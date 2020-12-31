@@ -46,7 +46,8 @@
     height: 30px;
     left: 36px;
     top: 36px;
-  }
+    position: fixed;
+}
   
   /* Color/shape of burger icon bars */
   .bm-burger-bars {

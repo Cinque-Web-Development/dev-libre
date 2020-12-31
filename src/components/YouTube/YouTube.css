@@ -1,0 +1,12 @@
+.video-list {
+    display: flex;
+    justify-content: center;
+}
+
+.youtube-video {
+    width: 20%;
+}
+
+.youtube-img {
+    width: 100%;
+}
