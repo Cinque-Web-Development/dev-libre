@@ -4,33 +4,47 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import YouTube from './components/YouTube/YouTube';
+import MainVideo from './components/MainVideo/MainVideo';
 
 
 export default function App() {
   const [videos, setVideos] = useState([])
-  // const [selectedVideos, setSelectedVideos] = useState(null)
+  const [selectedVideos, setSelectedVideos] = useState(null)
+  const [youtuber, setYoutuber] = useState('deved')
 
-  useEffect(() => {
-    const fetchVideos = () => {
-      // event.preventDefault()
-      axios.get("/videos", {
-        params: {
-          youtuber: "deved"
-        }
-      })
-      .then(response => {
-        console.log(response.data.items)
-        setVideos(response.data.items)
-      })
-    } 
-    fetchVideos()
-  }, [])
   
+
+  console.log(youtuber)
+  const fetchVideos = () => {
+    axios
+    .get("/videos", {
+      params: {
+        youtuber: youtuber,
+      },
+    })
+  .then(response => {
+    setVideos(response.data.items)
+    setSelectedVideos(response.data.items[0])
+    })
+  } 
+  useEffect(() => {
+        fetchVideos()
+    }, [youtuber])
+
+
+
+
+  
+
+  const onVideoSelect = (video) => {
+      setSelectedVideos(video)
+  }
 
     return (
         <Router>
             <NavBar />
-            <YouTube videos={videos}/>
+            <MainVideo setYoutuber={setYoutuber}  selectedVideos={selectedVideos}/>
+            <YouTube videos={videos} onVideoSelect={onVideoSelect}/>
         </Router>
     )
 }
