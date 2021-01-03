@@ -6,6 +6,7 @@ import NavBar from './components/NavBar/NavBar';
 import YouTube from './components/YouTube/YouTube';
 import MainVideo from './components/MainVideo/MainVideo';
 import Twitter from './components/Twitter/Twitter'
+import Reddit from './components/Reddit/Reddit';
 
 
 export default function App() {
@@ -44,10 +45,11 @@ export default function App() {
     return (
         <Router>
             <NavBar />
-            {/* <MainVideo setYoutuber={setYoutuber}  selectedVideos={selectedVideos}/> */}
+            <MainVideo setYoutuber={setYoutuber}  selectedVideos={selectedVideos}/>
             <YouTube videos={videos} onVideoSelect={onVideoSelect}/>
-            <div>
+            <div className="twitter-reddit">
               <Twitter />
+              <Reddit />
             </div>
         </Router>
     )

@@ -1,9 +1,10 @@
 import React from 'react'
+import './Twitter.css';
 import { Timeline } from 'react-twitter-widgets'
 
 export default function Twitter() {
   return (
-    <div>
+    <div className="twitter">
       <h2>Twitter Feed</h2>
       <Timeline
         dataSource={{
