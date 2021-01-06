@@ -9,14 +9,17 @@ import Twitter from './components/Twitter/Twitter'
 import Reddit from './components/Reddit/Reddit';
 
 
+
 export default function App() {
   const [videos, setVideos] = useState([])
   const [selectedVideos, setSelectedVideos] = useState(null)
-  const [youtuber, setYoutuber] = useState('deved')
+  const [youtuber, setYoutuber] = useState('deved');
+  const [programmingLanguage, setProgrammingLanguage] = useState('')
+  const [id, setId] = useState('')
 
   
 
-  console.log(youtuber)
+  
   const fetchVideos = () => {
     axios
     .get("/videos", {
@@ -27,13 +30,33 @@ export default function App() {
   .then(response => {
     setVideos(response.data.items)
     setSelectedVideos(response.data.items[0])
+    setId('1344767664326139905')
     })
   } 
   useEffect(() => {
         fetchVideos()
+        fetchLanguageVideos()
     }, [youtuber])
 
+   
+   
+  const fetchLanguageVideos = (language) => {
+    setProgrammingLanguage(language)
+    axios
+    .get("/languages", {
+      params: {
+        youtuber: youtuber,
+        language: language
+      },
+    })
+  .then(response => {
+    setVideos(response.data.items)
+    setSelectedVideos(response.data.items[0])
+    
+    })
+  } 
 
+ 
 
 
   
@@ -44,11 +67,11 @@ export default function App() {
 
     return (
         <Router>
-            <NavBar />
+            <NavBar fetchLanguageVideos={fetchLanguageVideos}/>
             <MainVideo setYoutuber={setYoutuber}  selectedVideos={selectedVideos}/>
             <YouTube videos={videos} onVideoSelect={onVideoSelect}/>
             <div className="twitter-reddit">
-              <Twitter />
+              <Twitter id={id}/>
               <Reddit />
             </div>
         </Router>
