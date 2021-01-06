@@ -12,8 +12,8 @@ export default function Twitter() {
           id: '1344767664326139905'
         }}
         options={{
-          height: '700',
-          width: '40vw'
+          height: '1000px',
+          width: '50vw'
         }}
       />
     </div>
