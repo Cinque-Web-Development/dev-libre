@@ -6,9 +6,11 @@ import jsIcon from "../../Assets/subred_js.png";
 import reactIcon from "../../Assets/subred_react.png";
 import techIcon from "../../Assets/subred_tech.png";
 import webdevIcon from "../../Assets/subred_webdev.png";
+import pythonIcon from '../../Assets/subred_python.png';
+import nodeIcon from '../../Assets/subred_node.png';
 import otherIcon from "../../Assets/subred_other.webp";
 
-export default function Reddit() {
+export default function Reddit({programmingLanguage}) {
     const [articles, setArticle] = useState();
     const [subReddits, setSubReddits] = useState("webdev")
     
@@ -32,7 +34,7 @@ export default function Reddit() {
 ) : <p>Loading....</p>
 
 
-let subredIcon = subReddits === "javascript" ? jsIcon : subReddits === "reactjs" ? reactIcon : subReddits === "technology" ? techIcon : subReddits === "webdev" ? webdevIcon : otherIcon;
+let subredIcon = subReddits === "javascript" ? jsIcon : subReddits === "reactjs" ? reactIcon : subReddits === "python" ? pythonIcon : subReddits === "node" ? nodeIcon  : subReddits === "technology" ? techIcon : subReddits === "webdev" ? webdevIcon : otherIcon;
 
 const handleChange = (e) => {
     setSubReddits(e.target.value)
@@ -53,6 +55,8 @@ const handleChange = (e) => {
                     <option className="subreddit-option" value=""></option>
                     <option className="subreddit-option" value="webdev">Web Dev</option>
                     <option className="subreddit-option" value="reactjs">React JS</option>
+                    <option className="subreddit-option" value="python">Python</option>
+                    <option className="subreddit-option" value="node">Node.js</option>
                     <option className="subreddit-option" value="softwareengineering">Software Engineering</option>
                     <option className="subreddit-option" value="javascript">JavaScript</option>
                     <option className="subreddit-option" value="technology">Technology</option>

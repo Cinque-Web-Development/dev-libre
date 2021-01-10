@@ -15,6 +15,7 @@ export default function NavBar({fetchLanguageVideos}) {
                 <Link className="links" to="/"><img className="logo" alt="" src="/images/dev-libre.png"></img></Link>
             </div>
             <div className="links-section">
+                <Link onClick={() => fetchLanguageVideos('javascript')} className="links" to='/javascript'>JavaScript</Link>
                 <Link onClick={() => fetchLanguageVideos('react')} className="links" to='/react'>React</Link>
                 <Link onClick={() => fetchLanguageVideos( 'python')} className="links" to='/python'>Python</Link>
                 <Link onClick={() => fetchLanguageVideos('node')} className="links" to='/node'>Node</Link>
