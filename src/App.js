@@ -52,7 +52,13 @@ export default function App() {
   .then(response => {
     setVideos(response.data.items)
     setSelectedVideos(response.data.items[0])
-    
+    if(language === "react") {
+      setId("1346900273642532867")
+    } else if(language === "python") {
+      setId("1348340577469952002")
+    } else if(language === "node") {
+      setId("1348341371023855616")
+    }
     })
   } 
 
