@@ -7,6 +7,7 @@ import YouTube from './components/YouTube/YouTube';
 import MainVideo from './components/MainVideo/MainVideo';
 import Twitter from './components/Twitter/Twitter'
 import Reddit from './components/Reddit/Reddit';
+import Footer from './components/Footer/Footer';
 
 
 
@@ -85,6 +86,7 @@ export default function App() {
               <Twitter id={id}/>
               <Reddit programmingLanguage={programmingLanguage}/>
             </div>
+            <Footer />
         </Router>
     )
 }
