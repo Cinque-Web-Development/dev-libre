@@ -40,7 +40,7 @@ export default function Reddit({programmingLanguage}) {
             setArticle(response.data.children)
         })
         })
-    }, [subReddits, programmingLanguage])
+    })
 
 
     const getArticles = articles ? articles.map((article) => 
