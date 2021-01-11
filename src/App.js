@@ -23,7 +23,7 @@ export default function App() {
   
   const fetchVideos = () => {
     axios
-    .get("/videos", {
+    .get("/api/videos", {
       params: {
         youtuber: youtuber,
       },
@@ -47,7 +47,7 @@ export default function App() {
     const fetchLanguageVideos = () => {
     
       axios
-      .get("/languages", {
+      .get("/api/languages", {
         params: {
           youtuber: youtuber,
           language: programmingLanguage
