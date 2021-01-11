@@ -12,7 +12,7 @@ import otherIcon from "../../Assets/subred_other.webp";
 
 export default function Reddit({programmingLanguage}) {
     const [articles, setArticle] = useState();
-    const [subReddits, setSubReddits] = useState("")
+    const [subReddits, setSubReddits] = useState("webdev")
     
     console.log(programmingLanguage)
 
