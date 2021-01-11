@@ -12,10 +12,24 @@ import otherIcon from "../../Assets/subred_other.webp";
 
 export default function Reddit({programmingLanguage}) {
     const [articles, setArticle] = useState();
-    const [subReddits, setSubReddits] = useState("webdev")
+    const [subReddits, setSubReddits] = useState("")
     
+   function setTheSubReddits() {
+       if(programmingLanguage === "react") {
+           setSubReddits("reactjs")
+       } else if(programmingLanguage === "javascript") {
+           setSubReddits("javascript")
+       } else if(programmingLanguage === "python") {
+           setSubReddits("python")
+       } else if(programmingLanguage === "node") {
+           setSubReddits("node")
+       } else  {
+           setSubReddits("webdev")
+       }
+   }
 
     useEffect(() => {
+        setTheSubReddits()
         fetch(`https://www.reddit.com/r/${subReddits}.json?&limit=4`)
         .then(res => {
             if(res.status !== 200) {
@@ -26,7 +40,7 @@ export default function Reddit({programmingLanguage}) {
             setArticle(response.data.children)
         })
         })
-    }, [subReddits])
+    }, [subReddits, programmingLanguage])
 
 
     const getArticles = articles ? articles.map((article) => 

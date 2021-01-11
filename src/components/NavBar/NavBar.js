@@ -1,15 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './NavBar.css';
-import {slide as Menu} from 'react-burger-menu';
+import SideBar from '../SideBar/SideBar';
 
 export default function NavBar({fetchLanguageVideos}) {
     return (
         <div className="nav-bar">
             <div className="accordion-section">
-                <Menu>
-                    <a target="_blank" rel="noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array Methods MDN</a>
-                </Menu>
+                <SideBar />
             </div>
             <div className="logo-section">
                 <Link className="links" to="/"><img className="logo" alt="" src="/images/dev-libre.png"></img></Link>
