@@ -6,7 +6,7 @@
     align-items: center;
     flex-direction: column;
     font-family: 'Varela Round', sans-serif;
-    border-top: 1px solid rgb(27,51,107);
+    border-top: 1px solid black;
 }
 
 .reddit-logo {
