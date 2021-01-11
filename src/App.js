@@ -39,7 +39,7 @@ export default function App() {
   useEffect(() => {
         fetchVideos()
         fetchLanguageVideos()
-    }, [youtuber])
+    }, [])
 
    
    
