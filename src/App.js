@@ -32,41 +32,41 @@ export default function App() {
     setVideos(response.data.items)
     setSelectedVideos(response.data.items[0])
     setId('1344767664326139905')
-    })
-  } 
+  })
+} 
+
 
 
   useEffect(() => {
         fetchVideos()
         fetchLanguageVideos()
-    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[youtuber, programmingLanguage])
 
    
-   
-  const fetchLanguageVideos = (language) => {
-    setProgrammingLanguage(language)
-    axios
-    .get("/languages", {
-      params: {
-        youtuber: youtuber,
-        language: language
-      },
-    })
-  .then(response => {
-    setVideos(response.data.items)
-    setSelectedVideos(response.data.items[0])
-    setProgrammingLanguage(language)
-    if(language === "react") {
-      setId("1346900273642532867")
-    } else if(language === "python") {
-      setId("1348340577469952002")
-    } else if(language === "node") {
-      setId("1348341371023855616")
-    } else if(language === "javascript") {
-      setId("1348345226105147398")
-    }
-    })
-  } 
+    const fetchLanguageVideos = () => {
+    
+      axios
+      .get("/languages", {
+        params: {
+          youtuber: youtuber,
+          language: programmingLanguage
+        },
+      })
+    .then(response => {
+      setVideos(response.data.items)
+      setSelectedVideos(response.data.items[0])
+      if(programmingLanguage === "react") {
+        setId("1346900273642532867")
+      } else if(programmingLanguage === "python") {
+        setId("1348340577469952002")
+      } else if(programmingLanguage === "node") {
+        setId("1348341371023855616")
+      } else if(programmingLanguage === "javascript") {
+        setId("1348345226105147398")
+      }
+      })
+    } 
 
  
 
@@ -79,7 +79,7 @@ export default function App() {
 
     return (
         <Router>
-            <NavBar fetchLanguageVideos={fetchLanguageVideos}/>
+            <NavBar setProgrammingLanguage={setProgrammingLanguage}/>
             <MainVideo setYoutuber={setYoutuber}  selectedVideos={selectedVideos}/>
             <YouTube videos={videos} onVideoSelect={onVideoSelect}/>
             <div className="twitter-reddit">

@@ -14,6 +14,8 @@ export default function Reddit({programmingLanguage}) {
     const [articles, setArticle] = useState();
     const [subReddits, setSubReddits] = useState("")
     
+    console.log(programmingLanguage)
+
    function setTheSubReddits() {
        if(programmingLanguage === "react") {
            setSubReddits("reactjs")
@@ -40,7 +42,8 @@ export default function Reddit({programmingLanguage}) {
             setArticle(response.data.children)
         })
         })
-    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [subReddits, programmingLanguage])
 
 
     const getArticles = articles ? articles.map((article) => 
