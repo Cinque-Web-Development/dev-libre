@@ -67,8 +67,22 @@
     text-decoration: none;
     transition: color 0.2s;
   }
-  
-  .bm-item:hover {
-    color: #ffffff;
-  }
+
+li {
+  list-style: none;
+}
+
+.sidebar-links {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.sidebar-links:hover {
+  color: teal;
+}
+
+.link-topics {
+  color: aquamarine;
+}
+
 
